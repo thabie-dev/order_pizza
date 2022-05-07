@@ -13,36 +13,59 @@
         <div class="heading ">
             <h1>Perfect Pizza</h1>
         </div>
-        <div class="cartTotal heading " >
-            <strong>Total price</strong>  
-            <span class="cartTotalPrice">0.00</span>
-            <a href="#">
-              <img src="shopping-cart.png" alt="">
-            </a>
-          </div>
+        
       
       
           <div class="cart heading ">
             <h3>Shopping Cart</h3>
+
+            <!-- <div x-data="{ count: 1 }">
+                <p x-text="count"></p>
+                <button @click="count--">-</button>
+                <button @click="count++">+</button>   
+            </div> -->
+
+            <table class="center">
+                
+                <tr>
+                    <td>Small</td>
+                <div x-data="{ count: 1 }">
+                    <td class="smallQty"><p x-text="count"></p></td>
+                    <td>
+                    <button @click="count--">-</button>  
+                    </td>
+
+                    <td>
+                        <button @click="count++">+</button>        
+                    </td>
+   
+                </div>
+                </tr>
+                </table>
+
+
+
+            
+            <div x-data="{ count: 1 }">
+                <p x-text="count"></p>
+                <button @click="count--">-</button>
+                <button @click="count++">+</button>  
+            </div>
+
             <div x-data="{ count: 1 }">
                 <p x-text="count"></p>
                 <button @click="count--">-</button>
                 <button @click="count++">+</button>
-                
             </div>
-            <div x-data="{ count: 1 }">
-                <p x-text="count"></p>
-                <button @click="count--">-</button>
-                <button @click="count++">+</button>
-                
-            </div>
-            <div x-data="{ count: 1 }">
-                <p x-text="count"></p>
-                <button @click="count--">-</button>
-                <button @click="count++">+</button>
-                
-            </div>
-            <img src="shopping-cart.png" alt="">
+
+            <div class="cartTotal heading " >
+                <strong>Total price</strong>  
+                <span class="cartTotalPrice">0.00</span>
+                <a href="#">
+                  <img src="shopping-cart.png" alt="">
+                </a>
+              </div>
+           
            </div>
            
 
@@ -106,5 +129,6 @@
         </div>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 
 </html>
