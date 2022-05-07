@@ -24,7 +24,7 @@ body {
     flex: 1;
     /* border: 1px solid lightgrey; */
     margin: 0em;
-    padding: 5em;
+    padding: 2em;
     
   }
   
@@ -54,6 +54,10 @@ body {
      margin-top: 1em;
     padding: 1em;
     background-color: #d9a13f;
+  }
+  .heading {
+      color: #f4130b;
+    text-align: center;
   }
   
   

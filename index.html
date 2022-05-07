@@ -10,9 +10,41 @@
 
 <body>
     <div>
-        <div>
+        <div class="heading ">
             <h1>Perfect Pizza</h1>
         </div>
+        <div class="cartTotal heading " >
+            <strong>Total price</strong>  
+            <span class="cartTotalPrice">0.00</span>
+            <a href="#">
+              <img src="shopping-cart.png" alt="">
+            </a>
+          </div>
+      
+      
+          <div class="cart heading ">
+            <h3>Shopping Cart</h3>
+            <div x-data="{ count: 1 }">
+                <p x-text="count"></p>
+                <button @click="count--">-</button>
+                <button @click="count++">+</button>
+                
+            </div>
+            <div x-data="{ count: 1 }">
+                <p x-text="count"></p>
+                <button @click="count--">-</button>
+                <button @click="count++">+</button>
+                
+            </div>
+            <div x-data="{ count: 1 }">
+                <p x-text="count"></p>
+                <button @click="count--">-</button>
+                <button @click="count++">+</button>
+                
+            </div>
+            <img src="shopping-cart.png" alt="">
+           </div>
+           
 
         <div class="specials">
             <div class="large">
@@ -22,7 +54,7 @@
                 <i>
                     <ul>
                         <li>Mozzarella cheese</li>
-                        <li>Tomato sauce</li>
+                        <li>Tomato</li>
                         <li>Basil</li>
                     </ul>
                 </i>
@@ -35,7 +67,7 @@
                 <i>
                     <ul>
                         <li>Mozzarella cheese</li>
-                        <li>Tomato sauce</li>
+                        <li>Tomato</li>
                         <li>Basil</li>
                     </ul>
                 </i>
@@ -49,7 +81,7 @@
                 <i>
                     <ul>
                         <li>Mozzarella cheese</li>
-                        <li>Tomato sauce</li>
+                        <li>Tomato</li>
                         <li>Basil</li>
                     </ul>
                 </i>
