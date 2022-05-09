@@ -33,39 +33,37 @@
 
             </template>
 
-            <!-- <template x-if="small>0">
-                <div class="smallCart">
-                  small:
+            <template x-if="medium>0">
+                <div class="mediumCart">
+                  Medium:
                   <template x-if="!checkout">
-                    <button @click="small++">+</button>
+                    <button @click="medium++">+</button>
                   </template> 
-                  <span x-text="small"></span>
+                  <span x-text="medium"></span>
    
                   <template x-if="!checkout">
-                   <button @click="small--">-</button>
+                   <button @click="medium--">-</button>
                  </template> 
-                 <span>@ R<span x-text="(small*48.99).toFixed(2)"></span></span>
+                 <span>@ R<span x-text="(medium*78.99).toFixed(2)"></span></span>
    
                 </div>
-   
                </template>
 
-               <template x-if="small>0">
-                <div class="smallCart">
-                  small:
+               <template x-if="large>0">
+                <div class="largeCart">
+                  large:
                   <template x-if="!checkout">
-                    <button @click="small++">+</button>
+                    <button @click="large++">+</button>
                   </template> 
-                  <span x-text="small"></span>
+                  <span x-text="large"></span>
    
                   <template x-if="!checkout">
-                   <button @click="small--">-</button>
+                   <button @click="large--">-</button>
                  </template> 
-                 <span>@ R<span x-text="(small*48.99).toFixed(2)"></span></span> -->
-   
-                <!-- </div>
-   
-               </template> -->
+                 <span>@ R<span x-text="(large*114.99).toFixed(2)"></span></span> 
+    
+                </div>
+               </template>
 
                <div>
                    total: R<span x-text="total"></span>
@@ -128,7 +126,11 @@
                         <li>Basil</li>
                     </ul>
                 </i>
+                <div>
+                    <button @click="large++">Order</button>
+                </div>
             </div>
+
             <div class="medium">
                 <img src="C:\Users\tania\Desktop\CODEX Workplacement Incubation\Order_Pizza\87930581.png" alt="">
 
@@ -141,6 +143,9 @@
                         <li>Basil</li>
                     </ul>
                 </i>
+                <div>
+                    <button @click="medium++">Order</button>
+                </div>
 
             </div>
 
