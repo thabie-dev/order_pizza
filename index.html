@@ -9,66 +9,113 @@
 </head>
 
 <body>
-    <div>
+    <div x-data ="{small:0, medium:0, large:0, get total(){return (this.small*48.99 + this.medium*78.99 + this.large*114.99).toFixed(2)}, checkout: false, paid:''}">
         <div class="heading ">
             <h1>Perfect Pizza</h1>
         </div>
-        
-      
-      
-          <div class="cart heading ">
+
+        <div class="orderCart" x-show="small !=0 || medium !=0 || large !=0">
             <h3>Shopping Cart</h3>
+            <template x-if="small>0">
+             <div class="smallCart">
+               small:
+               <template x-if="!checkout">
+                 <button @click="small++">+</button>
+               </template> 
+               <span x-text="small"></span>
 
-            <!-- <div x-data="{ count: 1 }">
-                <p x-text="count"></p>
-                <button @click="count--">-</button>
-                <button @click="count++">+</button>   
-            </div> -->
+               <template x-if="!checkout">
+                <button @click="small--">-</button>
+              </template> 
+              <span>@ R<span x-text="(small*48.99).toFixed(2)"></span></span>
 
-            <table class="center">
-                
-                <tr>
-                    <td>Small</td>
-                <div x-data="{ count: 1 }">
-                    <td class="smallQty"><p x-text="count"></p></td>
-                    <td>
-                    <button @click="count--">-</button>  
-                    </td>
+             </div>
 
-                    <td>
-                        <button @click="count++">+</button>        
-                    </td>
+            </template>
+
+            <!-- <template x-if="small>0">
+                <div class="smallCart">
+                  small:
+                  <template x-if="!checkout">
+                    <button @click="small++">+</button>
+                  </template> 
+                  <span x-text="small"></span>
+   
+                  <template x-if="!checkout">
+                   <button @click="small--">-</button>
+                 </template> 
+                 <span>@ R<span x-text="(small*48.99).toFixed(2)"></span></span>
    
                 </div>
-                </tr>
-                </table>
+   
+               </template>
 
+               <template x-if="small>0">
+                <div class="smallCart">
+                  small:
+                  <template x-if="!checkout">
+                    <button @click="small++">+</button>
+                  </template> 
+                  <span x-text="small"></span>
+   
+                  <template x-if="!checkout">
+                   <button @click="small--">-</button>
+                 </template> 
+                 <span>@ R<span x-text="(small*48.99).toFixed(2)"></span></span> -->
+   
+                <!-- </div>
+   
+               </template> -->
 
+               <div>
+                   total: R<span x-text="total"></span>
+               </div>
 
-            
-            <div x-data="{ count: 1 }">
-                <p x-text="count"></p>
-                <button @click="count--">-</button>
-                <button @click="count++">+</button>  
-            </div>
+               <template x-if="!checkout">
+                   <button @click="checkout=!checkout">Checkout</button>
+               </template>
 
-            <div x-data="{ count: 1 }">
-                <p x-text="count"></p>
-                <button @click="count--">-</button>
-                <button @click="count++">+</button>
-            </div>
+               <template x-if="!checkout">
+                <label
+                    >Amount recieved from customer: R<input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    x-model="paid"
+                    /></label>
+            </template>
+   
+            <template x-if="paid == total && checkout">
+                <span>
+                    <div style="color: green;">
+                        Payment successful
+                    </div>
+                    <button @click="small=0; medium=0; large=0; checkout=false;">Complete Order</button>
+                </span>
+            </template>
 
-            <div class="cartTotal heading " >
-                <strong>Total price</strong>  
-                <span class="cartTotalPrice">0.00</span>
-                <a href="#">
-                  <img src="shopping-cart.png" alt="">
-                </a>
-              </div>
+            <template x-if="(parseInt(paid) < total && paid !=total && checkout)">
+                <span>
+                    <div style="color:red;">
+                         Unsuccessful payment
+                    </div>
+                    <button @click="small=0; medium=0; large=0; checkout=false;">Cancel the Order</button>
+                </span>
+            </template>
+
+            <template x-if="(parseInt(paid) > total && checkout)">
+                <span>
+                    <div style="color:green;">
+                         Payment successful, here is your change: R<span 
+                         x-text="(parseInt(paid) - total).toFixed(2)"></span>
+                    </div>
+                    <button @click="small=0; medium=0; large=0; checkout=false;">Complete order</button>
+                </span>
+            </template>
+
+        </div>
+     
            
-           </div>
-           
-
         <div class="specials">
             <div class="large">
                 <img src="C:\Users\tania\Desktop\CODEX Workplacement Incubation\Order_Pizza\87930581.png" alt="">
@@ -108,6 +155,9 @@
                         <li>Basil</li>
                     </ul>
                 </i>
+                <div>
+                    <button @click="small++">Order</button>
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -128,7 +178,9 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 </body>
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
 
 </html>
