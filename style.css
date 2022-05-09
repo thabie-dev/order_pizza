@@ -1,7 +1,7 @@
 body {
     background: white;
     font-family: arial, sans-serif;
-    background-color: #168dbc;
+    background-color:black;
     font-size: 0.75em;
   }
   
@@ -56,7 +56,7 @@ body {
     background-color: #d9a13f;
   }
   .heading {
-      color: #f4130b;
+      color: #f4c20b;
     text-align: center;
   }
   
