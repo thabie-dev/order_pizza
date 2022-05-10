@@ -1,77 +1,75 @@
 body {
-    background: white;
-    font-family: arial, sans-serif;
-    background-color:black;
-    font-size: 0.75em;
-  }
-  
-  .small {
-    background-color: #f4130b;
-    
-    
-  }
-  
-  .medium {
-    background-color: #eb470c;
-  }
-  
-  .large {
-    background-color: #d57d17;
-    flex : 2;
-  }
-  
-  .specials div {
-    flex: 1;
-    /* border: 1px solid lightgrey; */
-    margin: 0em;
-    padding: 2em;
-    
-  }
-  
-  .small img {
-    width: 9em;
-  }
-  
-  .medium img {
-    width: 11em;
-  }
-  
-  
-  .large img {
-    width: 15em;
-    
-  }
-  
-  
-  
-  
-  .footer {
+  background: white;
+  font-family: arial, sans-serif;
+  background-color: black;
+  font-size: 0.75em;
+}
+
+.small {
+  background-color: #f4130b;
+
+
+}
+
+.medium {
+  background-color: #eb470c;
+}
+
+.large {
+  background-color: #d57d17;
+  flex: 2;
+}
+
+.specials div {
+  flex: 1;
+  /* border: 1px solid lightgrey; */
+  margin: 0em;
+  padding: 2em;
+
+}
+
+.small img {
+  width: 9em;
+}
+
+.medium img {
+  width: 11em;
+}
+
+
+.large img {
+  width: 15em;
+
+}
+
+
+
+
+.footer {
+  display: flex;
+}
+
+.footer div {
+  flex: 1;
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #d9a13f;
+}
+
+.heading {
+  color: #f4c20b;
+  text-align: center;
+}
+
+
+@media (min-width: 768px) {
+
+  .specials {
     display: flex;
   }
-  
-  .footer div {
-    flex: 1;
-     margin-top: 1em;
-    padding: 1em;
-    background-color: #d9a13f;
+
+  body {
+    font-size: 1em;
   }
-  .heading {
-      color: #f4c20b;
-    text-align: center;
-  }
-  
-  
-  @media (min-width: 768px){
-  
-    .specials {
-      display: flex;
-    }
-    
-    body {
-      font-size: 1em;
-    }
-    
-  }
-  
-  
-  
+
+}
