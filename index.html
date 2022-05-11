@@ -17,102 +17,103 @@
 
         <div class="orderCart heading" x-show="small !=0 || medium !=0 || large !=0">
             <h3>Shopping Cart</h3>
-            <template x-if="small>0">
-                <div class="smallCart">
-                    Small:
-                    <template x-if="!checkout">
-                        <button @click="small++">+</button>
-                    </template>
-                    <span x-text="small"></span>
-
-                    <template x-if="!checkout">
-                        <button @click="small--">-</button>
-                    </template>
-                    <span>@ R<span x-text="(small*48.99).toFixed(2)"></span></span>
-
+            <template x-if="small > 0">
+                <div class="small-cart">
+                  Small:
+                  <template x-if="!checkout">
+                    <button @click="small++">+</button> </template
+                  ><span x-text="small"></span
+                  ><template x-if="!checkout"
+                    ><button @click="small--">-</button></template
+                  >
+                  <span>@ R<span x-text="(small * 48.99).toFixed(2)"></span></span>
                 </div>
-
-            </template>
-
-            <template x-if="medium>0">
-                <div class="mediumCart">
-                    Medium:
-                    <template x-if="!checkout">
-                        <button @click="medium++">+</button>
-                    </template>
-                    <span x-text="medium"></span>
-
-                    <template x-if="!checkout">
-                        <button @click="medium--">-</button>
-                    </template>
-                    <span>@ R<span x-text="(medium*78.99).toFixed(2)"></span></span>
-
+              </template>
+              
+              <template x-if="medium > 0">
+                <div class="medium-cart">
+                  Medium:
+                  <template x-if="!checkout"
+                    ><button @click="medium++">+</button></template
+                  ><span x-text="medium"></span
+                  ><template x-if="!checkout"
+                    ><button @click="medium--">-</button></template
+                  >
+                  <span>@ R<span x-text="(medium * 78.99).toFixed(2)"></span></span>
                 </div>
-            </template>
-
-            <template x-if="large>0">
-                <div class="largeCart">
-                    Large:
-                    <template x-if="!checkout">
-                        <button @click="large++">+</button>
-                    </template>
-                    <span x-text="large"></span>
-
-                    <template x-if="!checkout">
-                        <button @click="large--">-</button>
-                    </template>
-                    <span>@ R<span x-text="(large*114.99).toFixed(2)"></span></span>
-
+              </template>
+            
+              <template x-if="large > 0">
+                <div class="large-cart">
+                  Large: <template x-if="!checkout"></template
+                  ><button @click="large++">+</button><span x-text="large"></span
+                  ><template x-if="!checkout"
+                    ><button @click="large--">-</button></template
+                  >
+                  <span>@ R<span x-text="(large * 114.99).toFixed(2)"></span></span>
                 </div>
-            </template>
-
-            <div>
-                Total: R<span x-text="total"></span>
-            </div>
-
-            <template x-if="!checkout">
+              </template>
+              <div>Total: R<span x-text="total"></span></div>
+              <template x-if="!checkout">
                 <button @click="checkout=!checkout">Checkout</button>
-            </template>
-
-            <template x-if="!checkout">
-                <label>Amount recieved from customer: R<input type="number" min="0" step="0.01"
-                        x-model="paid" /></label>
-            </template>
-
-            <template x-if="paid == total && checkout">
+              </template>
+              <template x-if="checkout">
+                <label
+                  >Amount received from customer: R<input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    x-model="paid"
+                /></label>
+              </template>
+              <template x-if="paid == total && checkout">
+                  <!-- <br> -->
                 <span>
-                    <div style="color: green;">
-                        Payment successful
-                    </div>
-                    <button @click="small=0; medium=0; large=0; checkout=false;">Complete Order</button>
+                  <div style="color: green">Successful Payment!</div>
+                  <button @click="small=0; medium=0; large=0; checkout=false;">
+                    Complete Order
+                  </button>
                 </span>
-            </template>
-
-            <template x-if="(parseInt(paid) < total && paid !=total && checkout)">
+              </template>
+              <template x-if="(parseInt(paid) < total && paid != total && checkout)">
+                  <!-- <br> -->
                 <span>
-                    <div style="color:red;">
-                        Unsuccessful payment
-                    </div>
-                    <button @click="small=0; medium=0; large=0; checkout=false;">Cancel the Order</button>
+                  <div style="color: red">Insufficient Funds!</div>
+                  <button @click="small=0; medium=0; large=0; checkout=false;">
+                    Cancel order
+                  </button>
                 </span>
-            </template>
-
-            <template x-if="(parseInt(paid) > total && checkout)">
+              </template>
+      
+              <template x-if="parseInt(paid) > total && checkout">
                 <span>
-                    <div style="color:green;">
-                        Payment successful, here is your change: R<span
-                            x-text="(parseInt(paid) - total).toFixed(2)"></span>
-                    </div>
-                    <button @click="small=0; medium=0; large=0; checkout=false;">Complete order</button>
+                  <div style="color: green">
+                      <br>
+                    Successful Payment, Here's your change: R<span
+                      x-text="(parseInt(paid) - total).toFixed(2)"
+                    ></span>
+                  </div>
+                  <button
+                    @click="small=0; medium=0; large=0; checkout=false; paid=''"
+                  >
+                    Complete the Order
+                  </button>
                 </span>
-            </template>
+              </template>
+            <!-- <div x-data="{ checkout: false }">
+                <button x-on:click="checkout = ! checkout">Order again</button>
+             
+                <div x-show="checkout">
+                    You did not put an Amount, please try again
+                </div>
+            </div> -->
 
         </div>
 
 
         <div class="specials">
             <div class="large">
-                <img src="images/pizza.png" alt="">
+                <img src="images/pizza.png"alt="">
                 <h2>Large Pizza</h2>
                 <h3>R114.99</h3>
                 <i>
@@ -128,8 +129,7 @@
             </div>
 
             <div class="medium">
-                <img src="images/pizza.png" alt="">
-
+                <img src="images/pizza.png"alt="">
                 <h2>Medium Pizza</h2>
                 <h3>R78.99</h3>
                 <i>
@@ -146,7 +146,7 @@
             </div>
 
             <div class="small">
-                <img src="images/pizza.png" alt="">
+                <img src="images/pizza.png"alt="">
                 <h2>Small Pizza</h2>
                 <h3>R48.99</h3>
                 <i>
